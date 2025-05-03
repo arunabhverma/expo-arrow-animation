@@ -19,6 +19,9 @@ import Animated, {
 
 const CELL_WIDTH = Dimensions.get("window").width / 7;
 const INITIAL_PAN_VALUE = { x: CELL_WIDTH, y: CELL_WIDTH };
+const TOTAL_CELLS = 2 * 7 * 7;
+const CELLS = Array.from({ length: TOTAL_CELLS }, (_, index) => index);
+
 const SPRING_CONFIG = {
   stiffness: 200,
   damping: 25,
@@ -26,10 +29,7 @@ const SPRING_CONFIG = {
 };
 
 export default function Home() {
-  const totalCells = 2 * 7 * 7;
-  const cells = Array.from({ length: totalCells }, (_, index) => index);
   const panValue = useSharedValue(INITIAL_PAN_VALUE);
-
   const gesture = Gesture.Pan()
     .onBegin((e) => {
       panValue.value = withSpring({ x: e.x, y: e.y }, SPRING_CONFIG);
@@ -49,7 +49,7 @@ export default function Home() {
       <SafeAreaView style={styles.container}>
         <GestureDetector gesture={gesture}>
           <View style={styles.grid}>
-            {cells.map((_, index) => (
+            {CELLS.map((_, index) => (
               <Cell key={index} panValue={panValue} index={index} />
             ))}
           </View>
@@ -76,22 +76,13 @@ const Cell = ({
   useDerivedValue(() => {
     const calculatedTargetAngle = calculateRotation(axis.value, panValue.value);
 
-    // Calculate the difference between current and last target angle
     let diff = calculatedTargetAngle - lastTargetAngle.value;
-
-    // Normalize the difference to be within -180 to 180
     if (diff > 180) diff -= 360;
     if (diff < -180) diff += 360;
 
-    // Update the raw angle by adding the normalized difference
     rawAngle.value = rawAngle.value + diff;
-
-    // Store the current target angle for next calculation
     lastTargetAngle.value = calculatedTargetAngle;
-
-    // Apply spring animation to the raw angle
     angleToTarget.value = withSpring(rawAngle.value, SPRING_CONFIG);
-
     distanceToTarget.value = withSpring(
       calculateDistance(axis.value, panValue.value),
       SPRING_CONFIG

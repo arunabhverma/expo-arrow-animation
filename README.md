@@ -1,50 +1,76 @@
-# Welcome to your Expo app 👋
+# Expo Arrow Animation
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A beautiful React Native animation demo using Expo, React Native Reanimated, and Gesture Handler. This project demonstrates a grid of arrows that respond to pan gestures with smooth animations.
 
-## Get started
+## Features
+
+- Interactive grid of animated arrows
+- Smooth spring animations using Reanimated
+- Gesture-based interaction
+- Responsive layout
+- TypeScript support
+
+## Tech Stack
+
+- Expo
+- React Native
+- React Native Reanimated
+- React Native Gesture Handler
+- TypeScript
+
+## Getting Started
 
 1. Install dependencies
 
    ```bash
    npm install
+   # or
+   yarn install
    ```
 
-2. Start the app
+2. Start the development server
 
    ```bash
-   npx expo start
+   npm start
+   # or
+   yarn start
    ```
 
-In the output, you'll find options to open the app in a
+3. Run on your preferred platform
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+   ```bash
+   # iOS
+   npm run ios
+   # or
+   yarn ios
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+   # Android
+   npm run android
+   # or
+   yarn android
+   ```
 
-## Get a fresh project
+## Project Structure
 
-When you're ready, run:
-
-```bash
-npm run reset-project
+```
+app/
+  ├── index.tsx        # Main component with animation logic
+  └── ...
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## How It Works
 
-## Learn more
+The app creates a grid of arrows that respond to pan gestures. Each arrow:
 
-To learn more about developing your project with Expo, look at the following resources:
+- Rotates to point towards the touch position
+- Scales based on distance from the touch
+- Translates slightly for a 3D effect
+- Uses spring animations for smooth transitions
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+## Contributing
 
-## Join the community
+Feel free to submit issues and enhancement requests.
 
-Join our community of developers creating universal apps.
+## License
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+This project is open source and available under the MIT License.
