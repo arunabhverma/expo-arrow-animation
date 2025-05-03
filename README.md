@@ -7,16 +7,6 @@ A beautiful React Native animation demo using Expo, React Native Reanimated, and
 - Interactive grid of animated arrows
 - Smooth spring animations using Reanimated
 - Gesture-based interaction
-- Responsive layout
-- TypeScript support
-
-## Tech Stack
-
-- Expo
-- React Native
-- React Native Reanimated
-- React Native Gesture Handler
-- TypeScript
 
 ## Getting Started
 
@@ -64,7 +54,6 @@ The app creates a grid of arrows that respond to pan gestures. Each arrow:
 
 - Rotates to point towards the touch position
 - Scales based on distance from the touch
-- Translates slightly for a 3D effect
 - Uses spring animations for smooth transitions
 
 ## Contributing
